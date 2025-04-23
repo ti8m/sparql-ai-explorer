@@ -109,12 +109,11 @@ Please read the corresponding README.md files under /ui and /aibackend
 
 [(Back to top)](#table-of-contents)
 
-Your contributions are always welcome! Please have a look at the [contribution guidelines](CONTRIBUTING.md)
+Your contributions are always welcome! Feel free to fork the repository and submit a pull request. If you have any questions or suggestions, please open an issue.
 
 # License
 
 [(Back to top)](#table-of-contents)
-
 
 The Apache License Version 2.0, January 2004 - [TI&M AG](https://www.ti8m.com/). Please have a look at the [LICENSE](LICENSE) for more details.
 
