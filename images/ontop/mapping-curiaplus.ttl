@@ -1,0 +1,3987 @@
+@prefix map:   <#> .
+@prefix db:    <> .
+@prefix vocab: <vocab/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq:  <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix jdbc:  <http://d2rq.org/terms/jdbc/> .
+
+map:Configuration
+    a                    d2rq:Configuration ;
+    d2rq:serveVocabulary false .
+
+map:database
+    a               d2rq:Database ;
+    d2rq:jdbcDriver "com.microsoft.sqlserver.jdbc.SQLServerDriver" ;
+    d2rq:jdbcDSN    "jdbc:sqlserver:<<JDBC_URL>>" ;
+    d2rq:username   "<<DB_USER>>" ;
+    d2rq:password   "<<PASSWORD>>" ;
+.
+
+# Table dbo.CP_RMG_Adresse
+map:dbo_CP_RMG_Adresse
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Adresse/AdresseId=@@dbo.CP_RMG_Adresse.AdresseId@@" ;
+    d2rq:class       <dbo/CP_RMG_Adresse> ;
+.
+
+map:dbo_CP_RMG_Adresse_AdresseId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#AdresseId> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.AdresseId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Adresse_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Adresse_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Adresse_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Adresse_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Adresse_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Adresse_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.DatumVon" ;
+    d2rq:datatype          xsd:date ;
+.
+
+map:dbo_CP_RMG_Adresse_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.DatumBis" ;
+    d2rq:datatype          xsd:date ;
+.
+
+map:dbo_CP_RMG_Adresse_TypCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#TypCode> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.TypCode" ;
+.
+
+map:dbo_CP_RMG_Adresse_Firma
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Firma> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Firma" ;
+.
+
+map:dbo_CP_RMG_Adresse_Strasse
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Strasse> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Strasse" ;
+.
+
+map:dbo_CP_RMG_Adresse_Postfach
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Postfach> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Postfach" ;
+.
+
+map:dbo_CP_RMG_Adresse_Plz
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Plz> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Plz" ;
+.
+
+map:dbo_CP_RMG_Adresse_Ort
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Ort> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Ort" ;
+.
+
+map:dbo_CP_RMG_Adresse_Land
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Land> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Land" ;
+.
+
+map:dbo_CP_RMG_Adresse_IstPubliziert
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#IstPubliziert> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.IstPubliziert" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Adresse_IstKorrespondenzadresse
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#IstKorrespondenzadresse> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.IstKorrespondenzadresse" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Adresse_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Adresse_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Adresse_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Adresse_LegacyIdWohnAdrAlsDienstAdr
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#LegacyIdWohnAdrAlsDienstAdr> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.LegacyIdWohnAdrAlsDienstAdr" ;
+.
+
+map:dbo_CP_RMG_Adresse_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Adresse.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Adresse_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Adresse ;
+    d2rq:property          <dbo/CP_RMG_Adresse#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Adresse.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Aktivitaet
+map:dbo_CP_RMG_Aktivitaet
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Aktivitaet/AktivitaetId=@@dbo.CP_RMG_Aktivitaet.AktivitaetId@@" ;
+    d2rq:class       <dbo/CP_RMG_Aktivitaet> ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_AktivitaetId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#AktivitaetId> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.AktivitaetId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_Bezeichnung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#Bezeichnung> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.Bezeichnung" ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_IstPubliziert
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#IstPubliziert> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.IstPubliziert" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Aktivitaet.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Aktivitaet_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Aktivitaet ;
+    d2rq:property          <dbo/CP_RMG_Aktivitaet#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Aktivitaet.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Ausbildung
+map:dbo_CP_RMG_Ausbildung
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Ausbildung/AusbildungId=@@dbo.CP_RMG_Ausbildung.AusbildungId@@" ;
+    d2rq:class       <dbo/CP_RMG_Ausbildung> ;
+.
+
+map:dbo_CP_RMG_Ausbildung_AusbildungId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#AusbildungId> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.AusbildungId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Ausbildung_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Ausbildung_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Ausbildung_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Ausbildung_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Ausbildung_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Ausbildung_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Ausbildung_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Ausbildung_Art
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#Art> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.Art" ;
+.
+
+map:dbo_CP_RMG_Ausbildung_TitelCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#TitelCode> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.TitelCode" ;
+.
+
+map:dbo_CP_RMG_Ausbildung_Institution
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#Institution> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.Institution" ;
+.
+
+map:dbo_CP_RMG_Ausbildung_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Ausbildung_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Ausbildung_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Ausbildung_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Ausbildung.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Ausbildung_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Ausbildung ;
+    d2rq:property          <dbo/CP_RMG_Ausbildung#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Ausbildung.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Beruf
+map:dbo_CP_RMG_Beruf
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Beruf/BerufId=@@dbo.CP_RMG_Beruf.BerufId@@" ;
+    d2rq:class       <dbo/CP_RMG_Beruf> ;
+.
+
+map:dbo_CP_RMG_Beruf_BerufId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#BerufId> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.BerufId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Beruf_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Beruf_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Beruf_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Beruf_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Beruf_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Beruf_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Beruf_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Beruf_Arbeitgeber
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#Arbeitgeber> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.Arbeitgeber" ;
+.
+
+map:dbo_CP_RMG_Beruf_ErwerbsartCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#ErwerbsartCode> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.ErwerbsartCode" ;
+.
+
+map:dbo_CP_RMG_Beruf_BezeichnungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#BezeichnungCode> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.BezeichnungCode" ;
+.
+
+map:dbo_CP_RMG_Beruf_Beschreibung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#Beschreibung> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.Beschreibung" ;
+.
+
+map:dbo_CP_RMG_Beruf_FunktionCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#FunktionCode> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.FunktionCode" ;
+.
+
+map:dbo_CP_RMG_Beruf_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Beruf_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Beruf_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Beruf_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Beruf.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Beruf_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Beruf ;
+    d2rq:property          <dbo/CP_RMG_Beruf#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Beruf.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Bild
+map:dbo_CP_RMG_Bild
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Bild/BildId=@@dbo.CP_RMG_Bild.BildId@@" ;
+    d2rq:class       <dbo/CP_RMG_Bild> ;
+.
+
+map:dbo_CP_RMG_Bild_BildId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#BildId> ;
+    d2rq:column            "dbo.CP_RMG_Bild.BildId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bild_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Bild.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bild_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Bild.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bild_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Bild.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Bild_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Bild.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Bild_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Bild.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Bild_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Bild.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bild_Bild
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#Bild> ;
+    d2rq:column            "dbo.CP_RMG_Bild.Bild" ;
+    d2rq:datatype          xsd:hexBinary ;
+.
+
+map:dbo_CP_RMG_Bild_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Bild.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bild_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Bild.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Bild_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bild ;
+    d2rq:property          <dbo/CP_RMG_Bild#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Bild.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Buergerort
+map:dbo_CP_RMG_Buergerort
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Buergerort/BuergerortId=@@dbo.CP_RMG_Buergerort.BuergerortId@@" ;
+    d2rq:class       <dbo/CP_RMG_Buergerort> ;
+.
+
+map:dbo_CP_RMG_Buergerort_BuergerortId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#BuergerortId> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.BuergerortId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Buergerort_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Buergerort_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Buergerort_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Buergerort_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Buergerort_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Buergerort_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.DatumVon" ;
+    d2rq:datatype          xsd:date ;
+.
+
+map:dbo_CP_RMG_Buergerort_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.DatumBis" ;
+    d2rq:datatype          xsd:date ;
+.
+
+map:dbo_CP_RMG_Buergerort_BuergerortCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#BuergerortCode> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.BuergerortCode" ;
+.
+
+map:dbo_CP_RMG_Buergerort_AndererBuergerort
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#AndererBuergerort> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.AndererBuergerort" ;
+.
+
+map:dbo_CP_RMG_Buergerort_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Buergerort_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Buergerort_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Buergerort_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Buergerort_AlterBuergerortCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#AlterBuergerortCode> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.AlterBuergerortCode" ;
+.
+
+map:dbo_CP_RMG_Buergerort_MigrationStatus
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#MigrationStatus> ;
+    d2rq:column            "dbo.CP_RMG_Buergerort.MigrationStatus" ;
+.
+
+map:dbo_CP_RMG_Buergerort_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Buergerort ;
+    d2rq:property          <dbo/CP_RMG_Buergerort#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Buergerort.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Bundesratsmandat
+map:dbo_CP_RMG_Bundesratsmandat
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Bundesratsmandat/BundesratsmandatId=@@dbo.CP_RMG_Bundesratsmandat.BundesratsmandatId@@" ;
+    d2rq:class       <dbo/CP_RMG_Bundesratsmandat> ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_BundesratsmandatId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#BundesratsmandatId> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.BundesratsmandatId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_Departement
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#Departement> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.Departement" ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_Funktion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#Funktion> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.Funktion" ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_FunktionKommentar
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#FunktionKommentar> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.FunktionKommentar" ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Bundesratsmandat.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Bundesratsmandat_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Bundesratsmandat ;
+    d2rq:property          <dbo/CP_RMG_Bundesratsmandat#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Bundesratsmandat.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Gruppe
+map:dbo_CP_RMG_Gruppe
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Gruppe/GruppeId=@@dbo.CP_RMG_Gruppe.GruppeId@@" ;
+    d2rq:class       <dbo/CP_RMG_Gruppe> ;
+.
+
+map:dbo_CP_RMG_Gruppe_GruppeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#GruppeId> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.GruppeId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Gruppe_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Gruppe_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Gruppe_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Gruppe_GruppeTyp
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#GruppeTyp> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.GruppeTyp" ;
+.
+
+map:dbo_CP_RMG_Gruppe_IstOeffentlich
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#IstOeffentlich> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.IstOeffentlich" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Gruppenfarbe
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Gruppenfarbe> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Gruppenfarbe" ;
+.
+
+map:dbo_CP_RMG_Gruppe_KategorieCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#KategorieCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.KategorieCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_RatCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#RatCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.RatCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Registernummer
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Registernummer> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Registernummer" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Geschaeftsgegenstand
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Geschaeftsgegenstand> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Geschaeftsgegenstand" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Gruendungsdatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Gruendungsdatum> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Gruendungsdatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Gruppe_Gruendungsbeschreibung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Gruendungsbeschreibung> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Gruendungsbeschreibung" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Zweck
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Zweck> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Zweck" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Aktivitaet
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Aktivitaet> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Aktivitaet" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Zusatzinformation
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Zusatzinformation> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Zusatzinformation" ;
+.
+
+map:dbo_CP_RMG_Gruppe_GruppeCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#GruppeCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.GruppeCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Email
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Email> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Email" ;
+.
+
+map:dbo_CP_RMG_Gruppe_GruppeFamilieCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#GruppeFamilieCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.GruppeFamilieCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Gruppe_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Gruppe_OrganBerechtigungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#OrganBerechtigungCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.OrganBerechtigungCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_KommissionNr
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#KommissionNr> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.KommissionNr" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_OrganGeschaefteBerechtigungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#OrganGeschaefteBerechtigungCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.OrganGeschaefteBerechtigungCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_DossierCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#DossierCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.DossierCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_RubrikCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#RubrikCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.RubrikCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_OrganAntraegeRatsgeschaefteOberaufsichtBerechtigungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#OrganAntraegeRatsgeschaefteOberaufsichtBerechtigungCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.OrganAntraegeRatsgeschaefteOberaufsichtBerechtigungCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_OrganAntraegeRatsgeschaefteBerechtigungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#OrganAntraegeRatsgeschaefteBerechtigungCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.OrganAntraegeRatsgeschaefteBerechtigungCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_OrganAntraegeEingeschraenkteIntGeschaefteBerechtigungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#OrganAntraegeEingeschraenkteIntGeschaefteBerechtigungCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.OrganAntraegeEingeschraenkteIntGeschaefteBerechtigungCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_OrganAntraegeIntGeschaefteBerechtigungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#OrganAntraegeIntGeschaefteBerechtigungCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.OrganAntraegeIntGeschaefteBerechtigungCode" ;
+.
+
+map:dbo_CP_RMG_Gruppe_DatumMIMSync
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#DatumMIMSync> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.DatumMIMSync" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Gruppe_ParteiNr
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#ParteiNr> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.ParteiNr" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_FraktionNr
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#FraktionNr> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.FraktionNr" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_KommissionNrCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#KommissionNrCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.KommissionNrCode" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Gruppe_UnterKommissionNrCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Gruppe ;
+    d2rq:property          <dbo/CP_RMG_Gruppe#UnterKommissionNrCode> ;
+    d2rq:column            "dbo.CP_RMG_Gruppe.UnterKommissionNrCode" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+# Table dbo.CP_RMG_GruppeBeziehung
+map:dbo_CP_RMG_GruppeBeziehung
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_GruppeBeziehung/GruppeBeziehungId=@@dbo.CP_RMG_GruppeBeziehung.GruppeBeziehungId@@" ;
+    d2rq:class       <dbo/CP_RMG_GruppeBeziehung> ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_GruppeBeziehungId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#GruppeBeziehungId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.GruppeBeziehungId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_GruppeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#GruppeId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.GruppeId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_BeziehungGruppeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#BeziehungGruppeId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.BeziehungGruppeId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_BeziehungTyp
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#BeziehungTyp> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.BeziehungTyp" ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#Archived> ;
+    d2rq:column            "dbo.CP_RMG_GruppeBeziehung.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_GruppeId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#ref-GruppeId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Gruppe ;
+    d2rq:join              "dbo.CP_RMG_GruppeBeziehung.GruppeId => dbo.CP_RMG_Gruppe.GruppeId" ;
+.
+
+map:dbo_CP_RMG_GruppeBeziehung_BeziehungGruppeId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeBeziehung ;
+    d2rq:property          <dbo/CP_RMG_GruppeBeziehung#ref-BeziehungGruppeId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Gruppe ;
+    d2rq:join              "dbo.CP_RMG_GruppeBeziehung.BeziehungGruppeId => dbo.CP_RMG_Gruppe.GruppeId" ;
+.
+
+# Table dbo.CP_RMG_GruppeMitgliedschaft
+map:dbo_CP_RMG_GruppeMitgliedschaft
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_GruppeMitgliedschaft/GruppeMitgliedschaftId=@@dbo.CP_RMG_GruppeMitgliedschaft.GruppeMitgliedschaftId@@" ;
+    d2rq:class       <dbo/CP_RMG_GruppeMitgliedschaft> ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_GruppeMitgliedschaftId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#GruppeMitgliedschaftId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.GruppeMitgliedschaftId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_GruppeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#GruppeId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.GruppeId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_GruppeMitgliedschaftTyp
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#GruppeMitgliedschaftTyp> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.GruppeMitgliedschaftTyp" ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.LegacyId" ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_DatumMIMSync
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#DatumMIMSync> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.DatumMIMSync" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_DatumMIMSyncPersMa
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#DatumMIMSyncPersMa> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.DatumMIMSyncPersMa" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#Archived> ;
+    d2rq:column            "dbo.CP_RMG_GruppeMitgliedschaft.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_GruppeMitgliedschaft_GruppeId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeMitgliedschaft ;
+    d2rq:property          <dbo/CP_RMG_GruppeMitgliedschaft#ref-GruppeId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Gruppe ;
+    d2rq:join              "dbo.CP_RMG_GruppeMitgliedschaft.GruppeId => dbo.CP_RMG_Gruppe.GruppeId" ;
+.
+
+# Table dbo.CP_RMG_GruppeName
+map:dbo_CP_RMG_GruppeName
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_GruppeName/GruppeNameId=@@dbo.CP_RMG_GruppeName.GruppeNameId@@" ;
+    d2rq:class       <dbo/CP_RMG_GruppeName> ;
+.
+
+map:dbo_CP_RMG_GruppeName_GruppeNameId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#GruppeNameId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.GruppeNameId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeName_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeName_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeName_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeName_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeName_GruppeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#GruppeId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.GruppeId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeName_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeName_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeName_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeName_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_GruppeName_DefaultSpracheCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#DefaultSpracheCode> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.DefaultSpracheCode" ;
+.
+
+map:dbo_CP_RMG_GruppeName_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeName.LegacyId" ;
+.
+
+map:dbo_CP_RMG_GruppeName_GruppeId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeName ;
+    d2rq:property          <dbo/CP_RMG_GruppeName#ref-GruppeId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Gruppe ;
+    d2rq:join              "dbo.CP_RMG_GruppeName.GruppeId => dbo.CP_RMG_Gruppe.GruppeId" ;
+.
+
+# Table dbo.CP_RMG_GruppeNameLn
+map:dbo_CP_RMG_GruppeNameLn
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_GruppeNameLn/GruppeNameLnId=@@dbo.CP_RMG_GruppeNameLn.GruppeNameLnId@@" ;
+    d2rq:class       <dbo/CP_RMG_GruppeNameLn> ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_GruppeNameLnId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#GruppeNameLnId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.GruppeNameLnId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_GruppeNameId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#GruppeNameId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.GruppeNameId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_SpracheCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#SpracheCode> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.SpracheCode" ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_Kurzbezeichnung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#Kurzbezeichnung> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.Kurzbezeichnung" ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_Langbezeichnung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#Langbezeichnung> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.Langbezeichnung" ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_LegacyTextListeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#LegacyTextListeId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.LegacyTextListeId" ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#Archived> ;
+    d2rq:column            "dbo.CP_RMG_GruppeNameLn.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_GruppeNameLn_GruppeNameId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeNameLn ;
+    d2rq:property          <dbo/CP_RMG_GruppeNameLn#ref-GruppeNameId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_GruppeName ;
+    d2rq:join              "dbo.CP_RMG_GruppeNameLn.GruppeNameId => dbo.CP_RMG_GruppeName.GruppeNameId" ;
+.
+
+# Table dbo.CP_RMG_GruppeSekretariat
+map:dbo_CP_RMG_GruppeSekretariat
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_GruppeSekretariat/SekretariatId=@@dbo.CP_RMG_GruppeSekretariat.SekretariatId@@" ;
+    d2rq:class       <dbo/CP_RMG_GruppeSekretariat> ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_SekretariatId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#SekretariatId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.SekretariatId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Archived> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_GruppeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#GruppeId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.GruppeId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_UrsprungPersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#UrsprungPersonId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.UrsprungPersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_AnredeCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#AnredeCode> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.AnredeCode" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Vorname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Vorname> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Vorname" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Nachname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Nachname> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Nachname" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_SpracheCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#SpracheCode> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.SpracheCode" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_FunktionCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#FunktionCode> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.FunktionCode" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Strasse
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Strasse> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Strasse" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Postfach
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Postfach> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Postfach" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Plz
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Plz> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Plz" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Ort
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Ort> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Ort" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Land
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Land> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Land" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Telefonnummer
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Telefonnummer> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Telefonnummer" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Mail
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Mail> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Mail" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Webseite
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Webseite> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Webseite" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Organisation
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Organisation> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Organisation" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_GruppeSekretariat_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_GruppeSekretariat ;
+    d2rq:property          <dbo/CP_RMG_GruppeSekretariat#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_GruppeSekretariat.LegacyId" ;
+.
+
+# Table dbo.CP_RMG_Interessenbindung
+map:dbo_CP_RMG_Interessenbindung
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Interessenbindung/InteressenbindungId=@@dbo.CP_RMG_Interessenbindung.InteressenbindungId@@" ;
+    d2rq:class       <dbo/CP_RMG_Interessenbindung> ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_InteressenbindungId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#InteressenbindungId> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.InteressenbindungId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_Bezeichnung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#Bezeichnung> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.Bezeichnung" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_RechtsformCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#RechtsformCode> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.RechtsformCode" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_FunktionCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#FunktionCode> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.FunktionCode" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_IstBezahlt
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#IstBezahlt> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.IstBezahlt" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_IstBehoerdenvertretung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#IstBehoerdenvertretung> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.IstBehoerdenvertretung" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_GremiumCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#GremiumCode> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.GremiumCode" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Interessenbindung.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Interessenbindung_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Interessenbindung ;
+    d2rq:property          <dbo/CP_RMG_Interessenbindung#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Interessenbindung.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Kontaktangabe
+map:dbo_CP_RMG_Kontaktangabe
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Kontaktangabe/KontaktangabeId=@@dbo.CP_RMG_Kontaktangabe.KontaktangabeId@@" ;
+    d2rq:class       <dbo/CP_RMG_Kontaktangabe> ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_KontaktangabeId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#KontaktangabeId> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.KontaktangabeId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_TypCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#TypCode> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.TypCode" ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_Wert
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#Wert> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.Wert" ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_IstPubliziert
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#IstPubliziert> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.IstPubliziert" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_LegacyTextlisteId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#LegacyTextlisteId> ;
+    d2rq:column            "dbo.CP_RMG_Kontaktangabe.LegacyTextlisteId" ;
+.
+
+map:dbo_CP_RMG_Kontaktangabe_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Kontaktangabe ;
+    d2rq:property          <dbo/CP_RMG_Kontaktangabe#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Kontaktangabe.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Nationalitaet
+map:dbo_CP_RMG_Nationalitaet
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Nationalitaet/NationalitaetId=@@dbo.CP_RMG_Nationalitaet.NationalitaetId@@" ;
+    d2rq:class       <dbo/CP_RMG_Nationalitaet> ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_NationalitaetId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#NationalitaetId> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.NationalitaetId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.DatumVon" ;
+    d2rq:datatype          xsd:date ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.DatumBis" ;
+    d2rq:datatype          xsd:date ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_NationalitaetCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#NationalitaetCode> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.NationalitaetCode" ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_LegacyNationalitaetId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#LegacyNationalitaetId> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.LegacyNationalitaetId" ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Nationalitaet.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Nationalitaet_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Nationalitaet ;
+    d2rq:property          <dbo/CP_RMG_Nationalitaet#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Nationalitaet.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Notfallkontakt
+map:dbo_CP_RMG_Notfallkontakt
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Notfallkontakt/NotfallkontaktId=@@dbo.CP_RMG_Notfallkontakt.NotfallkontaktId@@" ;
+    d2rq:class       <dbo/CP_RMG_Notfallkontakt> ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_NotfallkontaktId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#NotfallkontaktId> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.NotfallkontaktId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_BeziehungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#BeziehungCode> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.BeziehungCode" ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_Nachname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#Nachname> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.Nachname" ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_Vorname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#Vorname> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.Vorname" ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_Telefonnummer
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#Telefonnummer> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.Telefonnummer" ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Notfallkontakt.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Notfallkontakt_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Notfallkontakt ;
+    d2rq:property          <dbo/CP_RMG_Notfallkontakt#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Notfallkontakt.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Person
+map:dbo_CP_RMG_Person
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Person/PersonId=@@dbo.CP_RMG_Person.PersonId@@" ;
+    d2rq:class       <dbo/CP_RMG_Person> ;
+.
+
+map:dbo_CP_RMG_Person_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Person.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Person_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Person.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Person_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Person.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Person_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Person.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Person.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_ParlId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#ParlId> ;
+    d2rq:column            "dbo.CP_RMG_Person.ParlId" ;
+.
+
+map:dbo_CP_RMG_Person_PersonTyp
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#PersonTyp> ;
+    d2rq:column            "dbo.CP_RMG_Person.PersonTyp" ;
+.
+
+map:dbo_CP_RMG_Person_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_Person.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_Person.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_SpracheCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#SpracheCode> ;
+    d2rq:column            "dbo.CP_RMG_Person.SpracheCode" ;
+.
+
+map:dbo_CP_RMG_Person_Ledigname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Ledigname> ;
+    d2rq:column            "dbo.CP_RMG_Person.Ledigname" ;
+.
+
+map:dbo_CP_RMG_Person_GeschlechtCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#GeschlechtCode> ;
+    d2rq:column            "dbo.CP_RMG_Person.GeschlechtCode" ;
+.
+
+map:dbo_CP_RMG_Person_AmtlicherNachname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#AmtlicherNachname> ;
+    d2rq:column            "dbo.CP_RMG_Person.AmtlicherNachname" ;
+.
+
+map:dbo_CP_RMG_Person_AmtlicherVorname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#AmtlicherVorname> ;
+    d2rq:column            "dbo.CP_RMG_Person.AmtlicherVorname" ;
+.
+
+map:dbo_CP_RMG_Person_Sozialversicherungsnummer
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Sozialversicherungsnummer> ;
+    d2rq:column            "dbo.CP_RMG_Person.Sozialversicherungsnummer" ;
+.
+
+map:dbo_CP_RMG_Person_Geburtsdatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Geburtsdatum> ;
+    d2rq:column            "dbo.CP_RMG_Person.Geburtsdatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_Geburtsort
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Geburtsort> ;
+    d2rq:column            "dbo.CP_RMG_Person.Geburtsort" ;
+.
+
+map:dbo_CP_RMG_Person_Todesdatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Todesdatum> ;
+    d2rq:column            "dbo.CP_RMG_Person.Todesdatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_Titel
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Titel> ;
+    d2rq:column            "dbo.CP_RMG_Person.Titel" ;
+.
+
+map:dbo_CP_RMG_Person_Mail
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Mail> ;
+    d2rq:column            "dbo.CP_RMG_Person.Mail" ;
+.
+
+map:dbo_CP_RMG_Person_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Person.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Person_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Person.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Person_PersonNumber
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#PersonNumber> ;
+    d2rq:column            "dbo.CP_RMG_Person.PersonNumber" ;
+.
+
+map:dbo_CP_RMG_Person_AktualisierungsDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#AktualisierungsDatum> ;
+    d2rq:column            "dbo.CP_RMG_Person.AktualisierungsDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_FunktionBezeichnungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#FunktionBezeichnungCode> ;
+    d2rq:column            "dbo.CP_RMG_Person.FunktionBezeichnungCode" ;
+.
+
+map:dbo_CP_RMG_Person_FunktionBezeichnungZusatzInfo
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#FunktionBezeichnungZusatzInfo> ;
+    d2rq:column            "dbo.CP_RMG_Person.FunktionBezeichnungZusatzInfo" ;
+.
+
+map:dbo_CP_RMG_Person_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_Person.LegacyId" ;
+.
+
+map:dbo_CP_RMG_Person_LiferayUserId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#LiferayUserId> ;
+    d2rq:column            "dbo.CP_RMG_Person.LiferayUserId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Person_DatumMIMSync
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#DatumMIMSync> ;
+    d2rq:column            "dbo.CP_RMG_Person.DatumMIMSync" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Person_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Person ;
+    d2rq:property          <dbo/CP_RMG_Person#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Person.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+# Table dbo.CP_RMG_PersonAttribute
+map:dbo_CP_RMG_PersonAttribute
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_PersonAttribute/PersonAttributerId=@@dbo.CP_RMG_PersonAttribute.PersonAttributerId@@" ;
+    d2rq:class       <dbo/CP_RMG_PersonAttribute> ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_PersonAttributerId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#PersonAttributerId> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.PersonAttributerId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_Vorname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#Vorname> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.Vorname" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_Nachname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#Nachname> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.Nachname" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_NameOffiziell
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#NameOffiziell> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.NameOffiziell" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_AnredeCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#AnredeCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.AnredeCode" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_ZivilstandCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#ZivilstandCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.ZivilstandCode" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_IstZivilstandPubliziert
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#IstZivilstandPubliziert> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.IstZivilstandPubliziert" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_MilitaerGradCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#MilitaerGradCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.MilitaerGradCode" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_AnzahlKinder
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#AnzahlKinder> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.AnzahlKinder" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_IstAnzahlKinderPubliziert
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#IstAnzahlKinderPubliziert> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.IstAnzahlKinderPubliziert" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_VornamePartner
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#VornamePartner> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.VornamePartner" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_NachnamePartner
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#NachnamePartner> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.NachnamePartner" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_VereidigungstypCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#VereidigungstypCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.VereidigungstypCode" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_LegacyOffBezId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#LegacyOffBezId> ;
+    d2rq:column            "dbo.CP_RMG_PersonAttribute.LegacyOffBezId" ;
+.
+
+map:dbo_CP_RMG_PersonAttribute_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonAttribute ;
+    d2rq:property          <dbo/CP_RMG_PersonAttribute#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_PersonAttribute.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_PersonBeziehung
+map:dbo_CP_RMG_PersonBeziehung
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_PersonBeziehung/PersonBeziehungId=@@dbo.CP_RMG_PersonBeziehung.PersonBeziehungId@@" ;
+    d2rq:class       <dbo/CP_RMG_PersonBeziehung> ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_PersonBeziehungId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#PersonBeziehungId> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.PersonBeziehungId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_BeziehungPersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#BeziehungPersonId> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.BeziehungPersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_BeziehungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#BeziehungCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.BeziehungCode" ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_PersonEntwurfId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#PersonEntwurfId> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.PersonEntwurfId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.LegacyId" ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_DatumMIMSync
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#DatumMIMSync> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.DatumMIMSync" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonBeziehung_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonBeziehung ;
+    d2rq:property          <dbo/CP_RMG_PersonBeziehung#Archived> ;
+    d2rq:column            "dbo.CP_RMG_PersonBeziehung.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+# Table dbo.CP_RMG_PersonEntwurf
+map:dbo_CP_RMG_PersonEntwurf
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_PersonEntwurf/PersonEntwurfId=@@dbo.CP_RMG_PersonEntwurf.PersonEntwurfId@@" ;
+    d2rq:class       <dbo/CP_RMG_PersonEntwurf> ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_PersonEntwurfId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#PersonEntwurfId> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.PersonEntwurfId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Archived> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_PersonTyp
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#PersonTyp> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.PersonTyp" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_BeziehungTypCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#BeziehungTypCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.BeziehungTypCode" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_AnredeCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#AnredeCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.AnredeCode" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Vorname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Vorname> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Vorname" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Nachname
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Nachname> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Nachname" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Sozialversicherungsnummer
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Sozialversicherungsnummer> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Sozialversicherungsnummer" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_SpracheCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#SpracheCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.SpracheCode" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Strasse
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Strasse> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Strasse" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Postfach
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Postfach> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Postfach" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Plz
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Plz> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Plz" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Ort
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Ort> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Ort" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Land
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Land> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Land" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Telefon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Telefon> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Telefon" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Mail
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Mail> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Mail" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_FunktionBezeichnungCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#FunktionBezeichnungCode> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.FunktionBezeichnungCode" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_FunktionBezeichnungZusatzInfo
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#FunktionBezeichnungZusatzInfo> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.FunktionBezeichnungZusatzInfo" ;
+.
+
+map:dbo_CP_RMG_PersonEntwurf_Bild
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonEntwurf ;
+    d2rq:property          <dbo/CP_RMG_PersonEntwurf#Bild> ;
+    d2rq:column            "dbo.CP_RMG_PersonEntwurf.Bild" ;
+.
+
+# Table dbo.CP_RMG_PersonLn
+map:dbo_CP_RMG_PersonLn
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_PersonLn/PersonLnId=@@dbo.CP_RMG_PersonLn.PersonLnId@@" ;
+    d2rq:class       <dbo/CP_RMG_PersonLn> ;
+.
+
+map:dbo_CP_RMG_PersonLn_PersonLnId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#PersonLnId> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.PersonLnId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonLn_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonLn_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonLn_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonLn_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PersonLn_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#Archived> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_PersonLn_MvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#MvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.MvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonLn_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonLn_LanguageId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#LanguageId> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.LanguageId" ;
+.
+
+map:dbo_CP_RMG_PersonLn_Bezeichnung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#Bezeichnung> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.Bezeichnung" ;
+.
+
+map:dbo_CP_RMG_PersonLn_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PersonLn_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PersonLn ;
+    d2rq:property          <dbo/CP_RMG_PersonLn#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_PersonLn.Legacy_userName" ;
+.
+
+# Table dbo.CP_RMG_PolitischeFunktion
+map:dbo_CP_RMG_PolitischeFunktion
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_PolitischeFunktion/PolitischeFunktionId=@@dbo.CP_RMG_PolitischeFunktion.PolitischeFunktionId@@" ;
+    d2rq:class       <dbo/CP_RMG_PolitischeFunktion> ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_PolitischeFunktionId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#PolitischeFunktionId> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.PolitischeFunktionId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_ArtCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#ArtCode> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.ArtCode" ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_Bezeichnung
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#Bezeichnung> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.Bezeichnung" ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.LegacyId" ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#Archived> ;
+    d2rq:column            "dbo.CP_RMG_PolitischeFunktion.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_PolitischeFunktion_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_PolitischeFunktion ;
+    d2rq:property          <dbo/CP_RMG_PolitischeFunktion#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_PolitischeFunktion.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Sprache
+map:dbo_CP_RMG_Sprache
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Sprache/SpracheId=@@dbo.CP_RMG_Sprache.SpracheId@@" ;
+    d2rq:class       <dbo/CP_RMG_Sprache> ;
+.
+
+map:dbo_CP_RMG_Sprache_SpracheId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#SpracheId> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.SpracheId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Sprache_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Sprache_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Sprache_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Sprache_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Sprache_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Sprache_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Sprache_SpracheCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#SpracheCode> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.SpracheCode" ;
+.
+
+map:dbo_CP_RMG_Sprache_NiveauCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#NiveauCode> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.NiveauCode" ;
+.
+
+map:dbo_CP_RMG_Sprache_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Sprache_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Sprache_LegacySpracheId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#LegacySpracheId> ;
+    d2rq:column            "dbo.CP_RMG_Sprache.LegacySpracheId" ;
+.
+
+map:dbo_CP_RMG_Sprache_PersonId__ref
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Sprache ;
+    d2rq:property          <dbo/CP_RMG_Sprache#ref-PersonId> ;
+    d2rq:refersToClassMap  map:dbo_CP_RMG_Person ;
+    d2rq:join              "dbo.CP_RMG_Sprache.PersonId => dbo.CP_RMG_Person.PersonId" ;
+.
+
+# Table dbo.CP_RMG_Wahl
+map:dbo_CP_RMG_Wahl
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_Wahl/WahlId=@@dbo.CP_RMG_Wahl.WahlId@@" ;
+    d2rq:class       <dbo/CP_RMG_Wahl> ;
+.
+
+map:dbo_CP_RMG_Wahl_WahlId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#WahlId> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.WahlId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Wahl_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Wahl_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Wahl_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Wahl_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Wahl_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#Archived> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_Wahl_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Wahl_RatCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#RatCode> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.RatCode" ;
+.
+
+map:dbo_CP_RMG_Wahl_ErsatzVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#ErsatzVon> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.ErsatzVon" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Wahl_Kanton
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#Kanton> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.Kanton" ;
+.
+
+map:dbo_CP_RMG_Wahl_VereidigungstypCode
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#VereidigungstypCode> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.VereidigungstypCode" ;
+.
+
+map:dbo_CP_RMG_Wahl_VereidigungDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#VereidigungDatum> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.VereidigungDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Wahl_Austrittsgrund
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#Austrittsgrund> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.Austrittsgrund" ;
+.
+
+map:dbo_CP_RMG_Wahl_AustrittsgrundText
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#AustrittsgrundText> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.AustrittsgrundText" ;
+.
+
+map:dbo_CP_RMG_Wahl_GewaehltDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#GewaehltDatum> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.GewaehltDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Wahl_AustrittDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#AustrittDatum> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.AustrittDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_Wahl_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_Wahl_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_Wahl_LegacyRatMitgliedId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#LegacyRatMitgliedId> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.LegacyRatMitgliedId" ;
+.
+
+map:dbo_CP_RMG_Wahl_LegacyTextlisteId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_Wahl ;
+    d2rq:property          <dbo/CP_RMG_Wahl#LegacyTextlisteId> ;
+    d2rq:column            "dbo.CP_RMG_Wahl.LegacyTextlisteId" ;
+.
+
+# Table dbo.CP_RMG_WahlAndere
+map:dbo_CP_RMG_WahlAndere
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_WahlAndere/WahlAndereId=@@dbo.CP_RMG_WahlAndere.WahlAndereId@@" ;
+    d2rq:class       <dbo/CP_RMG_WahlAndere> ;
+.
+
+map:dbo_CP_RMG_WahlAndere_WahlAndereId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#WahlAndereId> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.WahlAndereId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlAndere_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlAndere_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#Archived> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_WahlAndere_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_Wahlgeschaeft
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#Wahlgeschaeft> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.Wahlgeschaeft" ;
+.
+
+map:dbo_CP_RMG_WahlAndere_AnzahlWahlgaenge
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#AnzahlWahlgaenge> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.AnzahlWahlgaenge" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_AbsolutesMehr
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#AbsolutesMehr> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.AbsolutesMehr" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_ErhalteneStimmen
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#ErhalteneStimmen> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.ErhalteneStimmen" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_WahlDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#WahlDatum> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.WahlDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlAndere_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlAndere_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_WahlAndere_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlAndere ;
+    d2rq:property          <dbo/CP_RMG_WahlAndere#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_WahlAndere.LegacyId" ;
+.
+
+# Table dbo.CP_RMG_WahlBundesrat
+map:dbo_CP_RMG_WahlBundesrat
+    a                d2rq:ClassMap ;
+    d2rq:dataStorage map:database ;
+    d2rq:uriPattern  "dbo/CP_RMG_WahlBundesrat/WahlBundesratId=@@dbo.CP_RMG_WahlBundesrat.WahlBundesratId@@" ;
+    d2rq:class       <dbo/CP_RMG_WahlBundesrat> ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_WahlBundesratId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#WahlBundesratId> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.WahlBundesratId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_CreatedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#CreatedBy> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.CreatedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_ModifiedBy
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#ModifiedBy> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.ModifiedBy" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_CreatedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#CreatedDate> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.CreatedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_ModifiedDate
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#ModifiedDate> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.ModifiedDate" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Archived
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Archived> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Archived" ;
+    d2rq:valueRegex        "^[01]$" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_PersonId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#PersonId> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.PersonId" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_DatumVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#DatumVon> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.DatumVon" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_DatumBis
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#DatumBis> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.DatumBis" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Wahlgeschaeft
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Wahlgeschaeft> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Wahlgeschaeft" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_ErsatzVon
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#ErsatzVon> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.ErsatzVon" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Kanton
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Kanton> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Kanton" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_AnzahlWahlgaenge
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#AnzahlWahlgaenge> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.AnzahlWahlgaenge" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_AbsolutesMehr
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#AbsolutesMehr> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.AbsolutesMehr" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_ErhalteneStimmen
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#ErhalteneStimmen> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.ErhalteneStimmen" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Link
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Link> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Link" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Kommentar
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Kommentar> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Kommentar" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Austrittsgrund
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Austrittsgrund> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Austrittsgrund" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_AustrittsgrundText
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#AustrittsgrundText> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.AustrittsgrundText" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_WahlDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#WahlDatum> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.WahlDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_StartDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#StartDatum> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.StartDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_AustrittDatum
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#AustrittDatum> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.AustrittDatum" ;
+    d2rq:datatype          xsd:dateTime ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Legacy_mvccVersion
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Legacy_mvccVersion> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Legacy_mvccVersion" ;
+    d2rq:datatype          xsd:integer ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_Legacy_userName
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#Legacy_userName> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.Legacy_userName" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_LegacyId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#LegacyId> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.LegacyId" ;
+.
+
+map:dbo_CP_RMG_WahlBundesrat_LegacyTextlisteId
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:dbo_CP_RMG_WahlBundesrat ;
+    d2rq:property          <dbo/CP_RMG_WahlBundesrat#LegacyTextlisteId> ;
+    d2rq:column            "dbo.CP_RMG_WahlBundesrat.LegacyTextlisteId" ;
+.
+

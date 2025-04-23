@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RDFAndSPARQL.SPARQLEndpointProjectPersistentStateComponent">
+    <option name="genericConfigs">
+      <map>
+        <entry key="19606639-9fb6-4bb1-b1f5-9f3c920df50a">
+          <value>
+            <SPARQLEndpointGenericConfig>
+              <option name="endpointId" value="19606639-9fb6-4bb1-b1f5-9f3c920df50a" />
+              <option name="name" value="OnTop" />
+              <option name="queryUrl" value="http://localhost:8080/sparql" />
+            </SPARQLEndpointGenericConfig>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

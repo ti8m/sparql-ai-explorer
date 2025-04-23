@@ -1,0 +1,2 @@
+*.sh text eol=lf
+fuseki/staging/*.ttl filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,42 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "test:unit": "vitest run",
+    "test:unit:update": "vitest run -u",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@codemirror/legacy-modes": "6.4.2",
+    "@codemirror/state": "6.5.0",
+    "@codemirror/view": "6.36.1",
+    "@nuxt/eslint": "latest",
+    "@nuxt/ui": "2.18.7",
+    "@nuxtjs/color-mode": "latest",
+    "dotenv": "16.4.7",
+    "happy-dom": "15.11.4",
+    "nuxt": "3.13.2",
+    "nuxt-codemirror": "0.0.12",
+    "vue": "latest",
+    "vue-router": "latest",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.1",
+    "@nuxt/test-utils": "3.14.4",
+    "@testing-library/vue": "8.1.0",
+    "@vue/test-utils": "2.4.6",
+    "jsdom": "25.0.1",
+    "playwright-core": "1.48.2",
+    "sass": "1.80.4",
+    "vitest": "2.1.4"
+  }
+}

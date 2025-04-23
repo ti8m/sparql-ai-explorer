@@ -1,0 +1,534 @@
+@prefix :               <http://opendata.parlament.ch/> .
+@prefix dc:             <http://purl.org/dc/elements/1.1/> .
+@prefix dbo:            <http://dbpedia.org/ontology/> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:            <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix obda:           <https://w3id.org/obda/vocabulary#> .
+@prefix parl:           <http://opendata.parlament.ch/> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:         <https://schema.org/> .
+@prefix parl-group:     <http://opendata.parlament.ch/Group#> .
+@prefix parl-person:    <http://opendata.parlament.ch/Person#> .
+@prefix parl-address:   <http://opendata.parlament.ch/Address#> .
+@prefix parl-business:  <http://opendata.parlament.ch/Business#> .
+@prefix parl-election:  <http://opendata.parlament.ch/Election#> .
+@prefix parl-groupName: <http://opendata.parlament.ch/GroupName#> .
+@base <http://opendata.parlament.ch/> .
+
+<http://opendata.parlament.ch/>
+    rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date
+    rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://opendata.parlament.ch/isNameOf
+parl:isNameOf
+    rdf:type owl:ObjectProperty .
+
+
+###  http://opendata.parlament.ch/isNamed
+parl:isNamed
+    rdf:type owl:ObjectProperty .
+
+
+###  http://opendata.parlament.ch/Business#cosingedBy
+parl-business:cosingedBy
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-business:isInvolvedInBusiness ;
+    owl:inverseOf      parl-person:hasCosigned ;
+    rdfs:domain        parl:Business ;
+    rdfs:range         parl:Person .
+
+
+###  http://opendata.parlament.ch/Business#isAuthoredBy
+parl-business:isAuthoredBy
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-business:isInvolvedInBusiness ;
+    owl:inverseOf      parl-person:hasAuthored ;
+    rdfs:domain        parl:Business ;
+    rdfs:range         parl:Person .
+
+
+###  http://opendata.parlament.ch/Business#isInvolvedInBusiness
+parl-business:isInvolvedInBusiness
+    rdf:type      owl:ObjectProperty ;
+    owl:inverseOf parl-person:involvedWith ;
+    rdfs:domain   parl:Business ;
+    rdfs:range    parl:Person .
+
+
+###  http://opendata.parlament.ch/Business#opposedBy
+parl-business:opposedBy
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-business:isInvolvedInBusiness ;
+    owl:inverseOf      parl-person:isOpposing ;
+    rdfs:domain        parl:Business ;
+    rdfs:range         parl:Person .
+
+
+###  http://opendata.parlament.ch/Group#isNamed
+parl-group:isNamed
+    rdf:type      owl:ObjectProperty ;
+    owl:inverseOf parl-groupName:isNameOf ;
+    rdfs:domain   parl:Group ;
+    rdfs:range    parl:GroupName .
+
+
+###  http://opendata.parlament.ch/GroupName#isNameOf
+parl-groupName:isNameOf
+    rdf:type owl:ObjectProperty .
+
+
+###  http://opendata.parlament.ch/Person#electedAs
+parl-person:electedAs
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  parl:Election .
+
+
+###  http://opendata.parlament.ch/Person#hasAuthored
+parl-person:hasAuthored
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-person:involvedWith ;
+    rdfs:domain        parl:Person ;
+    rdfs:range         parl:Business .
+
+
+###  http://opendata.parlament.ch/Person#hasCosigned
+parl-person:hasCosigned
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-person:involvedWith ;
+    rdfs:domain        parl:Person ;
+    rdfs:range         parl:Business .
+
+
+###  http://opendata.parlament.ch/Person#involvedWith
+parl-person:involvedWith
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  parl:Business .
+
+
+###  http://opendata.parlament.ch/Person#isMemberOf
+parl-person:isMemberOf
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  parl:Group .
+
+
+###  http://opendata.parlament.ch/Person#isOpposing
+parl-person:isOpposing
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-person:involvedWith ;
+    rdfs:domain        parl:Person ;
+    rdfs:range         parl:Business .
+
+
+###  http://opendata.parlament.ch/Person#isParlGroupPresidentOf
+parl-person:isParlGroupPresidentOf
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-person:isPresidentOf ;
+    rdfs:domain        parl:Person ;
+    rdfs:range         parl:Group .
+
+
+###  http://opendata.parlament.ch/Person#isPresidentOf
+parl-person:isPresidentOf
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-person:isMemberOf ;
+    rdfs:domain        parl:Person ;
+    rdfs:range         parl:Group .
+
+
+###  http://opendata.parlament.ch/Person#isVicePresidentOf
+parl-person:isVicePresidentOf
+    rdf:type           owl:ObjectProperty ;
+    rdfs:subPropertyOf parl-person:isMemberOf ;
+    rdfs:domain        parl:Person ;
+    rdfs:range         parl:Group .
+
+
+###  http://opendata.parlament.ch/Person#livesAt
+parl-person:livesAt
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  parl:Address .
+
+
+###  http://opendata.parlament.ch/Person#worksAs
+parl-person:worksAs
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  parl:Occupation .
+
+
+###  http://opendata.parlament.ch/Person#worksAt
+parl-person:worksAt
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  parl:Address .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://opendata.parlament.ch/ValidTo
+parl:ValidTo
+    rdf:type owl:DatatypeProperty .
+
+
+###  http://opendata.parlament.ch/validFrom
+parl:validFrom
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:TimeConstraintEntity ;
+    rdfs:range  xsd:dateTime .
+
+
+###  http://opendata.parlament.ch/validTo
+parl:validTo
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:TimeConstraintEntity ;
+    rdfs:range  xsd:dateTime .
+
+
+###  http://opendata.parlament.ch/Address#company
+parl-address:company
+    rdf:type   owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+
+###  http://opendata.parlament.ch/Business#businessNumber
+parl-business:businessNumber
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:Business ;
+    rdfs:range  xsd:string .
+
+
+###  http://opendata.parlament.ch/Business#link
+parl-business:link
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:Business ;
+    rdfs:range  xsd:anyURI .
+
+
+###  http://opendata.parlament.ch/Election#canton
+parl-election:canton
+    rdf:type   owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+
+###  http://opendata.parlament.ch/Election#council
+parl-election:council
+    rdf:type   owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+
+###  http://opendata.parlament.ch/Election#electedDate
+parl-election:electedDate
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:range         xsd:dateTime .
+
+
+###  http://opendata.parlament.ch/Election#leavingDate
+parl-election:leavingDate
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf parl:ValidTo ;
+    rdfs:range         xsd:dateTime .
+
+
+###  http://opendata.parlament.ch/Election#swearingInDate
+parl-election:swearingInDate
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf parl:validFrom ;
+    rdfs:range         xsd:dateTime .
+
+
+###  http://opendata.parlament.ch/Group#committeeNr
+parl-group:committeeNr
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain        parl:Committee ;
+    rdfs:range         xsd:integer .
+
+
+###  http://opendata.parlament.ch/Group#factionNr
+parl-group:factionNr
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain        parl:Faction ;
+    rdfs:range         xsd:integer .
+
+
+###  http://opendata.parlament.ch/Group#groupCode
+parl-group:groupCode
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain        parl:Group ;
+    rdfs:range         xsd:string .
+
+
+###  http://opendata.parlament.ch/Group#longName
+parl-group:longName
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain        parl:GroupName ;
+    rdfs:range         xsd:string .
+
+
+###  http://opendata.parlament.ch/Group#partyNr
+parl-group:partyNr
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:Party ;
+    rdfs:range  xsd:integer .
+
+
+###  http://opendata.parlament.ch/Group#shortName
+parl-group:shortName
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain        parl:GroupName ;
+    rdfs:range         xsd:string .
+
+
+###  http://opendata.parlament.ch/Group#subCommitteeNr
+parl-group:subCommitteeNr
+    rdf:type           owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdfs:domain        parl:Committee ;
+    rdfs:range         xsd:integer .
+
+
+###  http://opendata.parlament.ch/Person#maritalStatus
+parl-person:maritalStatus
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  xsd:string .
+
+
+###  http://opendata.parlament.ch/Person#officialDenomination
+parl-person:officialDenomination
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  xsd:string .
+
+
+###  http://opendata.parlament.ch/Person#title
+parl-person:title
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:Person ;
+    rdfs:range  xsd:string .
+
+
+###  http://purl.org/dc/elements/1.1/language
+dc:language
+    rdf:type    owl:DatatypeProperty ;
+    rdfs:domain parl:GroupName ;
+    rdfs:range  xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dbpedia.org/ontology/person
+dbo:person
+    rdf:type owl:Class .
+
+
+###  http://opendata.parlament.ch/Address
+parl:Address
+    rdf:type owl:Class .
+
+
+###  http://opendata.parlament.ch/Business
+parl:Business
+    rdf:type owl:Class .
+
+
+###  http://opendata.parlament.ch/Committee
+parl:Committee
+    rdf:type        owl:Class ;
+    rdfs:subClassOf parl:Group .
+
+
+###  http://opendata.parlament.ch/Election
+parl:Election
+    rdf:type        owl:Class ;
+    rdfs:subClassOf parl:TimeConstraintEntity .
+
+
+###  http://opendata.parlament.ch/Faction
+parl:Faction
+    rdf:type        owl:Class ;
+    rdfs:subClassOf parl:Group .
+
+
+###  http://opendata.parlament.ch/Group
+parl:Group
+    rdf:type        owl:Class ;
+    rdfs:subClassOf parl:TimeConstraintEntity .
+
+
+###  http://opendata.parlament.ch/GroupMembership
+parl:GroupMembership
+    rdf:type        owl:Class ;
+    rdfs:subClassOf parl:TimeConstraintEntity .
+
+
+###  http://opendata.parlament.ch/GroupName
+parl:GroupName
+    rdf:type owl:Class .
+
+
+###  http://opendata.parlament.ch/Occupation
+parl:Occupation
+    rdf:type        owl:Class ;
+    rdfs:subClassOf parl:TimeConstraintEntity .
+
+
+###  http://opendata.parlament.ch/Party
+parl:Party
+    rdf:type        owl:Class ;
+    rdfs:subClassOf parl:Group .
+
+
+###  http://opendata.parlament.ch/Person
+parl:Person
+    rdf:type        owl:Class ;
+    rdfs:subClassOf dbo:person .
+
+
+###  http://opendata.parlament.ch/TimeConstraintEntity
+parl:TimeConstraintEntity
+    rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#ObjectProperty
+owl:ObjectProperty
+    rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#ontology
+owl:ontology
+    rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://opendata.parlament.ch/
+<http://opendata.parlament.ch/>
+    rdf:type owl:NamedIndividual, owl:ontology .
+
+
+###  http://opendata.parlament.ch/isNameOf
+parl:isNameOf
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/isNamed
+parl:isNamed
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#electedAs
+parl-person:electedAs
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#isMemberOf
+parl-person:isMemberOf
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#isParlGroupPresidentOf
+parl-person:isParlGroupPresidentOf
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#isPresidentOf
+parl-person:isPresidentOf
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#isVicePresidentOf
+parl-person:isVicePresidentOf
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#livesAt
+parl-person:livesAt
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#worksAs
+parl-person:worksAs
+    rdf:type owl:NamedIndividual .
+
+
+###  http://opendata.parlament.ch/Person#worksAt
+parl-person:worksAt
+    rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+parl-person:electedAs
+    rdfs:comment "Represents the elections a person has."@en ;
+    rdfs:label   "elected as"@en .
+
+
+parl-person:isMemberOf
+    rdfs:comment "Represents groupMemberships a person as a memeber"@en ;
+    rdfs:label   "is member of"@en .
+
+
+parl-person:isParlGroupPresidentOf
+    rdfs:comment "Represents groupMemberships a person as a parl group president"@en ;
+    rdfs:label   "is parl group president of"@en .
+
+
+parl-person:isPresidentOf
+    rdfs:comment "Represents groupMemberships a person as president"@en ;
+    rdfs:label   "is president of"@en .
+
+
+parl-person:isVicePresidentOf
+    rdfs:comment "Represents groupMemberships a person as a vice president"@en ;
+    rdfs:label   "is vicepresident of"@en .
+
+
+parl-person:livesAt
+    rdfs:comment "Represents the address a person lives at."@en ;
+    rdfs:label   "lives at"@en .
+
+
+parl-person:worksAs
+    rdfs:comment "Represents the occupation or job a person has."@en ;
+    rdfs:label   "works as"@en .
+
+
+parl-person:worksAt
+    rdfs:comment "Represents the address a person works at."@en ;
+    rdfs:label   "works at"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

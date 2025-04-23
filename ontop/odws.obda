@@ -1,0 +1,136 @@
+[PrefixDeclaration]
+:		http://opendata.parlament.ch/
+dc:		http://purl.org/dc/elements/1.1/
+dbo:		http://dbpedia.org/ontology/
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+foaf:		http://xmlns.com/foaf/0.1/
+obda:		https://w3id.org/obda/vocabulary#
+parl:		http://opendata.parlament.ch/
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+schema:		https://schema.org/
+parl-group:	http://opendata.parlament.ch/Group#
+parl-person:	http://opendata.parlament.ch/Person#
+parl-address:	http://opendata.parlament.ch/Address#
+parl-business:	http://opendata.parlament.ch/Business#
+parl-election:	http://opendata.parlament.ch/Election#
+parl-groupName:	http://opendata.parlament.ch/GroupName#
+
+[MappingDeclaration] @collection [[
+mappingId	MAPPING-Committee
+target		:Group/{CommitteeId} a :Committee ; :TimeConstraintEntity#validFrom {ValidFrom}^^xsd:dateTime ; :TimeConstraintEntity#validTo {ValidTo}^^xsd:dateTime ; parl-group:groupCode {CommitteeCode}^^xsd:string ; :Committee#categoryCode {CategoryCode}^^xsd:string ; :Committee#councilCode {CouncilCode}^^xsd:string ; parl-group:groupType {GroupType}^^xsd:string ; :Committee#registerNumber {RegisterNumber}^^xsd:string ; :Committee#businessPurpose {BusinessPurpose}^^xsd:string ; :Committee#groupFamilyCode {GroupFamilyCode}^^xsd:string ; :Committee#committeeNr {CommitteeNr}^^xsd:integer ; :Committee#committeeNrCode {CommitteeNrCode}^^xsd:integer ; :Committee#subCommitteeNrCode {SubCommitteeNrCode}^^xsd:integer ; :Committee#rubricCode {RubricCode}^^xsd:string .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_Committee"
+
+mappingId	MAPPING-Party
+target		:Group/{PartyId} a :Party ; :TimeConstraintEntity#validFrom {ValidFrom}^^xsd:dateTime ; :TimeConstraintEntity#validTo {ValidTo}^^xsd:dateTime ; parl-group:groupCode {PartyCode}^^xsd:string ; :Party#partyNr {PartyNr}^^xsd:integer .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_Party"
+
+mappingId	MAPPING-Faction
+target		:Group/{FactionId} a :Faction ; :TimeConstraintEntity#validFrom {ValidFrom}^^xsd:dateTime ; :TimeConstraintEntity#validTo {ValidTo}^^xsd:dateTime ; parl-group:groupCode {FactionCode}^^xsd:string ; :Faction#factionNr {FactionNr}^^xsd:integer .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_Faction"
+
+mappingId	MAPPING-IsNameOf
+target		:GroupName/{GroupNameLnId} parl-groupName:isNameOf :Group/{GruppeId} .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_GroupNameLn" WHERE ValidFrom <= GETDATE() AND (ValidTo IS NULL OR ValidTo >= GETDATE())
+
+mappingId	MAPPING-WS_RMG_GroupMembership
+target		:GroupMembership/{GroupMembershipId} a :GroupMembership ; :TimeConstraintEntity#validTo {EntryDate}^^xsd:string ; :TimeConstraintEntity#validFrom {LeavingDate}^^xsd:string ; :GroupMembership#membershipType {MembershipType}^^xsd:string .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_GroupMembership"
+
+mappingId	MAPPING-WS_RMG_GroupName
+target		:GroupName/{GroupNameLnId} a :GroupName ; dc:language {LanguageCode}^^xsd:string ; parl-group:shortName {ShortName}^^xsd:string ; parl-group:longName {LongName}^^xsd:string .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_GroupNameLn"
+
+mappingId	MAPPING-PERSON
+target		:Person/{PersonNumber} a :Person ; foaf:firstName {FirstName}^^xsd:string ; foaf:familyName {LastName}^^xsd:string ; parl-person:active {Active}^^xsd:boolean ; parl-person:officialDenomination {OfficialDenomination}^^xsd:string ; foaf:title {SalutationLetter}^^xsd:string ; dbo:birthDate {DateOfBirth}^^xsd:dateTime ; dbo:deathDate {DateOfDeath}^^xsd:dateTime ; dbo:birthPlace {PlaceOfBirth}^^xsd:string ; dbo:gender {Gender}^^xsd:string ; parl-person:maritalStatus {MaritalStatus}^^xsd:string ; dbo:militaryFunction {MilitaryGrade}^^xsd:string ; schema:numChildren {NumberOfChildren}^^xsd:integer ; parl-person:title {Title}^^xsd:string ; parl-person:link {Link}^^xsd:anyURI .
+source		SELECT *, CONCAT('https://ws-old.parlament.ch/councillors/', PersonNumber) as Link FROM "curiaplus"."odws"."WS_RMG_Person"
+
+mappingId	MAPPING-OCCUPATION
+target		:Occupation/{OccupationId} a :Occupation ; dbo:employer {Employer} ; dbo:occupation {EmploymentType}^^xsd:string ; :TimeConstraintEntity#validFrom {FromDate}^^xsd:dateTime ; :TimeConstraintEntity#validTo {ToDate}^^xsd:dateTime .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_Occupation"
+
+mappingId	MAPPING-WORKS_AS
+target		:Person/{PersonNumber} parl-person:worksAs :Occupation/{OccupationId} .
+source		SELECT PersonNumber, OccupationId FROM "curiaplus"."odws"."WS_RMG_Occupation"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_Occupation"."PersonId"
+
+mappingId	MAPPING-KNOWS_LANGUAGE
+target		:Person/{PersonNumber} schema:knowsLanguage {Language} .
+source		SELECT PersonNumber, "curiaplus"."odws"."WS_RMG_Language".Language FROM "curiaplus"."odws"."WS_RMG_Language"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_Language"."PersonId"
+
+mappingId	MAPPING-ELECTION
+target		:Election/{ElectionId} a :Election ; parl-election:swearingInDate {SwearingInDate}^^xsd:dateTime ; parl-election:electedDate {Electeddate}^^xsd:dateTime ; parl-election:leavingDate {LeavingDate}^^xsd:dateTime ; parl-election:council {Council} ; parl-election:canton {Canton} .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_Election"
+
+mappingId	MAPPING-ELECTED_AS
+target		:Person/{PersonNumber} parl-person:electedAs :Alection/{ElectionId} .
+source		SELECT PersonNumber, ElectionId FROM "curiaplus"."odws"."WS_RMG_Election"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_Election"."PersonId"
+
+mappingId	MAPPING-ADDRESS
+target		:Address/{AddressId} a :Address ; schema:addressCountry {Country}^^xsd:string ; schema:addressLocality {City}^^xsd:string ; schema:postalCode {Zip}^^xsd:string ; schema:streetAddress {Street}^^xsd:string ; parl-address:company {Company}^^xsd:string .
+source		SELECT * FROM "curiaplus"."odws"."WS_RMG_Address"
+
+mappingId	MAPPING-LIVES_AT
+target		:Person/{PersonNumber} parl-person:livesAt :Address/{AddressId} .
+source		SELECT PersonNumber, AddressId FROM "curiaplus"."odws"."WS_RMG_Address"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_Address"."PersonId"
+			WHERE TypeCode = 'ADDRESSTYP;WOHNADRESSE' AND FromDate <= GETDATE() AND (ToDate IS NULL OR ToDate >= GETDATE())
+
+mappingId	MAPPING-WORKS_AT
+target		:Person/{PersonNumber} parl-person:worksAt :Address/{AddressId} .
+source		SELECT PersonNumber, AddressId FROM "curiaplus"."odws"."WS_RMG_Address"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_Address"."PersonId"
+			WHERE TypeCode = 'ADDRESSTYP;DIENSTLICHE_ADRESSE' AND FromDate <= GETDATE() AND (ToDate IS NULL OR ToDate >= GETDATE())
+
+mappingId	MAPPING-IS_MEMBER_OF
+target		:Person/{PersonNumber} parl-person:isMemberOf :Group/{GruppeId} .
+source		SELECT PersonNumber, GruppeId FROM "curiaplus"."odws"."WS_RMG_GroupMembership"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_GroupMembership"."PersonId"
+			WHERE  EntryDate <= GETDATE()  AND (LeavingDate IS NULL OR LeavingDate >= GETDATE())
+
+mappingId	MAPPING-IS_PRESIDENT_OF
+target		:Person/{PersonNumber} parl-person:isPresidentOf :Group/{GruppeId} .
+source		SELECT PersonNumber, GruppeId FROM "curiaplus"."odws"."WS_RMG_GroupMembership"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_GroupMembership"."PersonId"
+			WHERE MembershipType = 'GRUPPENMITGLIEDSCHAFT;PRAESIDENTIN' AND EntryDate <= GETDATE()  AND (LeavingDate IS NULL OR LeavingDate >= GETDATE())
+
+mappingId	MAPPING-IS_PARL_GROUP_PRESIDENT_OF
+target		:Person/{PersonNumber} parl-person:isPresidentOf :Group/{GruppeId} .
+source		SELECT PersonNumber, GruppeId FROM "curiaplus"."odws"."WS_RMG_GroupMembership"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_GroupMembership"."PersonId"
+			WHERE MembershipType = 'GROUPMEMBERFUNCTION;FRAKTIONSPRAESIDENT' AND EntryDate <= GETDATE()  AND (LeavingDate IS NULL OR LeavingDate >= GETDATE())
+
+mappingId	MAPPING-IS_VICEPRESIDENT_OF
+target		:Person/{PersonNumber} parl-person:isVicePresidentOf :Group/{GruppeId} .
+source		SELECT PersonNumber, GruppeId FROM "curiaplus"."odws"."WS_RMG_GroupMembership"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_RMG_GroupMembership"."PersonId"
+			WHERE MembershipType = 'GROUPMEMBERFUNCTION;VIZEPRAESIDENTIN' AND EntryDate <= GETDATE()  AND (LeavingDate IS NULL OR LeavingDate >= GETDATE())
+
+mappingId	MAPPING-BUSINESS
+target		:Business/{AffairNumber} a :Business ; parl-business:businessNumber {FormattedAffairNumber}^^xsd:string ; parl-business:link {Link}^^xsd:anyURI .
+source		SELECT AffairNumber, FormattedAffairNumber, CONCAT('https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=',AffairNumber) as Link FROM "curiaplus"."odws"."WS_GES_Affair"
+
+mappingId	MAPPING-AUTHOR
+target		:Person/{PersonNumber} parl-person:hasAuthored :Business/{AffairNumber} .
+source		SELECT * FROM "curiaplus"."odws"."WS_GES_Author"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_GES_Author"."PersonId"
+			JOIN "curiaplus"."odws"."WS_GES_Affair" ON "curiaplus"."odws"."WS_GES_Affair"."AffairInfoId" = "curiaplus"."odws"."WS_GES_Author"."AffairInfoId"
+
+mappingId	MAPPING-COSIGNATORY
+target		:Person/{PersonNumber} parl-person:hasCosigned :Business/{AffairNumber} .
+source		SELECT * FROM "curiaplus"."odws"."WS_GES_Cosignatory"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_GES_Cosignatory"."PersonId"
+			JOIN "curiaplus"."odws"."WS_GES_Affair" ON "curiaplus"."odws"."WS_GES_Affair"."AffairInfoId" = "curiaplus"."odws"."WS_GES_Cosignatory"."AffairInfoId"
+
+mappingId	MAPPING-OPPOSERS
+target		:Person{PersonNumber} parl-person:isOpposing :Business/{AffairNumber} .
+source		SELECT * FROM "curiaplus"."odws"."WS_GES_Opposition"
+			JOIN "curiaplus"."odws"."WS_RMG_Person" ON "curiaplus"."odws"."WS_RMG_Person"."PersonId" = "curiaplus"."odws"."WS_GES_Opposition"."PersonId"
+			JOIN "curiaplus"."odws"."WS_GES_Affair" ON "curiaplus"."odws"."WS_GES_Affair"."AffairInfoId" = "curiaplus"."odws"."WS_GES_Opposition"."AffairInfoId"
+			WHERE (GETDATE() BETWEEN FromDate AND ToDate)
+]]
+

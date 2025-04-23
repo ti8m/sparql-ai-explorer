@@ -1,0 +1,48 @@
+volumes:
+  fuseki-data:
+services:
+  ontop:
+    build: images/ontop
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./ontop:/tmp/ontop
+    restart: on-failure
+    profiles:
+      - ontop
+
+
+  fuseki:
+    image: stain/jena-fuseki
+    ports:
+      - "3030:3030"
+    environment:
+      ADMIN_PASSWORD:
+      TDB: 2
+    volumes:
+      - type: volume
+        source: fuseki-data
+        target: /fuseki
+        read_only: false
+      - ./fuseki/logs:/fuseki/logs
+      - ./fuseki/staging:/staging
+
+  aibackend:
+    build:
+      context: ./aibackend
+      dockerfile: Dockerfile
+    ports:
+      - "8091:8091"
+    volumes:
+      - ./aibackend:/app
+    command: [ "uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8091" ]
+
+  web-app:
+    build:
+      context: ./ui
+      args:
+        NUXT_AI_API_PATH: http://aibackend:8091/api
+        NUXT_FUSEKI_API_PATH: http://fuseki:3030/odws
+    ports:
+      - "3000:3000"
+

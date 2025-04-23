@@ -1,0 +1,16 @@
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix dbo: <http://dbpedia.org/ontology/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix xml: <http://www.w3.org/XML/1998/namespace>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix obda: <https://w3id.org/obda/vocabulary#>
+prefix schema: <https://schema.org/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix parl: <http://opendata.parlament.ch/>
+prefix parl-group: <http://opendata.parlament.ch/Group#>
+prefix parl-person: <http://opendata.parlament.ch/Person#>
+prefix parl-address: <http://opendata.parlament.ch/Address#>
+prefix parl-election: <http://opendata.parlament.ch/Election#>
+prefix parl-groupName: <http://opendata.parlament.ch/GroupName#>

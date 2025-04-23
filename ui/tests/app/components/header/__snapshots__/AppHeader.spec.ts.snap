@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AppHeader > should match html 1`] = `
+"<header class="bg-blue-whale p-3 flex items-center justify-between">
+  <div class="flex items-center gap-4"><a href="/"><img src="/assets/icon_parlament.svg" alt="Parlamentvsdienste Icon" class="h-full mx-2"></a>
+    <p class="text-white">The Federal Assembly — The Swiss Parliament</p>
+  </div>
+  <p class="text-white hidden sm:block">v1.0.0</p>
+</header>"
+`;

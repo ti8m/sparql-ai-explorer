@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Landing Page > should match html 1`] = `
+"<div class="rounded-lg divide-y divide-gray-200 dark:divide-gray-800 ring-1 ring-gray-200 dark:ring-gray-800 shadow bg-white dark:bg-gray-900 w-2/4 sm:w-1/4">
+  <div class="px-4 py-5 sm:px-6">
+    <h1 class="font-bold text-md"> Welcome to the OpenData Webservice Landing Page </h1>
+  </div>
+  <div class="px-4 py-5 sm:p-6">
+    <ul class="list-disc list-inside">
+      <li class="flex-col items-center gap-2 list-none">
+        <div class="flex items-center gap-5"><span class="iconify i-heroicons:document-text-20-solid text-blue-500" aria-hidden="true"></span><a href="/doc/api-guidelines.html" class="text-blue-500 hover:text-blue-whale-400" rel="noopener noreferer">Api Guidelines</a></div>
+        <hr class="w-full my-2">
+      </li>
+      <li class="flex-col items-center gap-2 list-none">
+        <div class="flex items-center gap-5"><span class="iconify i-heroicons:code-bracket-square-20-solid text-green-500" aria-hidden="true"></span><a href="/doc/swagger-ui/index.html" class="text-blue-500 hover:text-blue-whale-400" rel="noopener noreferer">Api Spec (Swagger)</a></div>
+        <hr class="w-full my-2">
+      </li>
+      <li class="flex-col items-center gap-2 list-none">
+        <div class="flex items-center gap-5"><span class="iconify i-heroicons:cube-20-solid text-yellow-500" aria-hidden="true"></span><a href="/doc/v3/api-docs" class="text-blue-500 hover:text-blue-whale-400" rel="noopener noreferer">Api Spec in JSON format</a></div>
+        <hr class="w-full my-2">
+      </li>
+      <li class="flex-col items-center gap-2 list-none">
+        <div class="flex items-center gap-5"><span class="iconify i-heroicons:paper-airplane-20-solid text-gray-500" aria-hidden="true"></span><a href="/registration" class="text-blue-500 hover:text-blue-whale-400" rel="noopener noreferer">Registration</a></div>
+        <hr class="w-full my-2">
+      </li>
+    </ul>
+  </div>
+  <!--v-if-->
+</div>"
+`;
